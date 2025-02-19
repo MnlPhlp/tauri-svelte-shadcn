@@ -1,7 +1,13 @@
 <script lang="ts">
   import DarkMode from "@/components/DarkMode.svelte";
   import Greet from "@/components/Greet.svelte";
+  import { store } from "@/store.svelte";
   import { ModeWatcher } from "mode-watcher";
+  import { onMount } from "svelte";
+
+  onMount(() => {
+    store.start();
+  });
 </script>
 
 <ModeWatcher />

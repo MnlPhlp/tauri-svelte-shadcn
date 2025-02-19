@@ -358,7 +358,7 @@
   dependencies:
     tslib "^2.8.0"
 
-"@tauri-apps/api@^2", "@tauri-apps/api@^2.0.0":
+"@tauri-apps/api@^2", "@tauri-apps/api@^2.0.0", "@tauri-apps/api@^2.0.3":
   version "2.2.0"
   resolved "https://npm.freshx.de/repository/npm/@tauri-apps/api/-/api-2.2.0.tgz#daaff2515b1a4ff1e763cf84a414548b02b566c5"
   integrity sha512-R8epOeZl1eJEl603aUMIGb4RXlhPjpgxbGVEaqY+0G5JG9vzV/clNlzTeqc+NLYXVqXcn8mb4c5b9pJIUDEyAg==
@@ -435,6 +435,13 @@
   integrity sha512-hHsJ9RPWpZvZEPVFaL+d25gABMUMOf/A6ESXnvf/ii9guTukj58WXsAE/SOysXRIhej7kseRCxnOnIMpSCdUsQ==
   dependencies:
     "@tauri-apps/api" "^2.0.0"
+
+"@tauri-store/shared@0.6.0":
+  version "0.6.0"
+  resolved "https://npm.freshx.de/repository/npm/@tauri-store/shared/-/shared-0.6.0.tgz#fa61b0cc4f5b107264c9e538a7fcf8b45ac6b279"
+  integrity sha512-2KBezqqkw68HvvXHEtbbpxyQHDjymBUZl10YuAsNRI8DHFIA0n18WE7NRyQ93+H7IzDP1/B41m2/rcMDHBSiKw==
+  dependencies:
+    "@tauri-apps/api" "^2.0.3"
 
 "@types/estree@1.0.6", "@types/estree@^1.0.5", "@types/estree@^1.0.6":
   version "1.0.6"
@@ -1304,6 +1311,26 @@ svelte@^5.0.0:
     magic-string "^0.30.11"
     zimmerframe "^1.1.2"
 
+svelte@^5.15.0:
+  version "5.20.2"
+  resolved "https://npm.freshx.de/repository/npm/svelte/-/svelte-5.20.2.tgz#b08c003e982a32c588dcbbf24c1ac8606c0654dd"
+  integrity sha512-aYXJreNUiyTob0QOzRZeBXZMGeFZDch6SrSRV8QTncZb6zj0O3BEdUzPpojuHQ1pTvk+KX7I6rZCXPUf8pTPxA==
+  dependencies:
+    "@ampproject/remapping" "^2.3.0"
+    "@jridgewell/sourcemap-codec" "^1.5.0"
+    "@types/estree" "^1.0.5"
+    acorn "^8.12.1"
+    acorn-typescript "^1.4.13"
+    aria-query "^5.3.1"
+    axobject-query "^4.1.0"
+    clsx "^2.1.1"
+    esm-env "^1.2.1"
+    esrap "^1.4.3"
+    is-reference "^3.0.3"
+    locate-character "^3.0.0"
+    magic-string "^0.30.11"
+    zimmerframe "^1.1.2"
+
 tailwind-merge@2.5.4:
   version "2.5.4"
   resolved "https://npm.freshx.de/repository/npm/tailwind-merge/-/tailwind-merge-2.5.4.tgz#4bf574e81fa061adeceba099ae4df56edcee78d1"
@@ -1353,6 +1380,15 @@ tailwindcss@^3.4.17:
     postcss-selector-parser "^6.1.2"
     resolve "^1.22.8"
     sucrase "^3.35.0"
+
+tauri-plugin-svelte@1.2.1:
+  version "1.2.1"
+  resolved "https://npm.freshx.de/repository/npm/tauri-plugin-svelte/-/tauri-plugin-svelte-1.2.1.tgz#6acb808eec15d30abfa895d359fc8fae37bd4b8c"
+  integrity sha512-xusgcHpnXqRt4RO+3UjqAlOCTh5PcxzDEa11Qd8Z3cHz6MMl0PLE6j0ExeAur+dTiZVLEGFsIm6Qd0LY9ED/wA==
+  dependencies:
+    "@tauri-apps/api" "^2.0.3"
+    "@tauri-store/shared" "0.6.0"
+    svelte "^5.15.0"
 
 thenify-all@^1.0.0:
   version "1.6.0"

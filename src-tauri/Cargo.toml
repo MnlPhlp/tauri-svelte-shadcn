@@ -37,4 +37,5 @@ serde_json = "1"
 specta-typescript = "0.0.9"
 specta = "=2.0.0-rc.22"
 tauri-specta = { version = "2.0.0-rc.21", features = ["typescript"] }
+tauri-plugin-svelte = "1.2.1"
 
