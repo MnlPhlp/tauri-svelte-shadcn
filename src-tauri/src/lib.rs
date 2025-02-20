@@ -21,7 +21,6 @@ fn greet_from_store(app: AppHandle) {
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
 pub fn run() {
     let builder = tauri_specta::Builder::<tauri::Wry>::new()
-        // Then register them (separated by a comma)
         .commands(tauri_specta::collect_commands![greet, greet_from_store,]);
 
     #[cfg(all(debug_assertions, desktop))] // <- Only export on non-release builds
@@ -32,14 +31,21 @@ pub fn run() {
         )
         .expect("Failed to export typescript bindings");
 
-    tauri::Builder::default()
+    let tauri_builder = tauri::Builder::default()
         .plugin(tauri_plugin_shell::init())
-        .plugin(tauri_plugin_svelte::init())
-        // and finally tell Tauri how to invoke them
+        .plugin(tauri_plugin_svelte::init());
+    #[cfg(feature = "headless")]
+    let http = tauri_invoke_http::Invoke::new(["*"], Some(8080));
+    #[cfg(feature = "headless")]
+    let tauri_builder = tauri_builder.invoke_system(http.initialization_script());
+
+    tauri_builder
         .invoke_handler(builder.invoke_handler())
         .setup(move |app| {
             // This is also required if you want to use events
             builder.mount_events(app);
+            #[cfg(feature = "headless")]
+            http.start(app.handle());
 
             Ok(())
         })
