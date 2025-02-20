@@ -34,7 +34,7 @@ export function setup() {
                       "Content-Type": 'application/json',
                       "Tauri-Callback": callback,
                       "Tauri-Error": error,
-                      "Tauri-Invoke-Key": 'M0VtCjCoK(U[x<iJTy{E',
+                      "Tauri-Invoke-Key": '[TAURI_INVOKE_KEY]',
                     },
                   })
                     .then((response) => {

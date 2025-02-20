@@ -45,7 +45,18 @@ pub fn run() {
             // This is also required if you want to use events
             builder.mount_events(app);
             #[cfg(feature = "headless")]
-            http.start(app.handle());
+            {
+                http.start(app.handle());
+                app.webview_windows().values().for_each(|window| {
+                    window.hide().unwrap();
+                });
+                let old = std::fs::read_to_string("src/lib/debug.template.ts").unwrap_or_default();
+                std::fs::write(
+                    "src/lib/debug.ts",
+                    old.replace("[TAURI_INVOKE_KEY]", app.invoke_key()),
+                )
+                .unwrap();
+            }
 
             Ok(())
         })
